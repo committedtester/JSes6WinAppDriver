@@ -1,39 +1,40 @@
-import wd from 'wd';
-import chai from 'chai';
-import chaiAsPromised from 'chai-as-promised';
-import { startServer } from '../../lib/server';
-chai.should();
-chai.use(chaiAsPromised);
+import NotepadPage from '../pageObjects/notepadPage';
+import Server from '../../lib/server';
+import DriverBuilder from '../../lib/driverBuilder';
 
-const TEST_PORT = 4788;
-const TEST_HOST = "localhost";
+var capabilities ={
+  app: "C:\\WINDOWS\\system32\\notepad.exe",
+  platformName: "Windows",
+  deviceName: "WindowsPC"
+}
 
-let server, driver;
+let driverBuilder;
+let driver;
 
-describe('Driver', function () {  
+describe('Notepad related tests', function () {  
   before(async function () {
-    server = await startServer(TEST_PORT, TEST_HOST);
+
+    await Server.startServer();
   });
 
   after(async function () {
-    await server.close();
+    await Server.stopServer();
   });
 
   beforeEach(async function () {
-    driver = wd.promiseChainRemote(TEST_HOST, TEST_PORT);
+    driverBuilder = new DriverBuilder();
+    driver = await driverBuilder.createDriver(capabilities);
+    console.log("My driver in the before each is" +driver);
+    //await driver.elementByName("Untitled - Notepad");
   });
 
   afterEach(async function () {
-    await driver.quit();
+    await driverBuilder.stopDriver();
   });
 
   it('should run a basic session using a real client', async function () {    
-    await driver.init({
-      app: "C:\\dev\\BizAnalyser\\BizAnalyser\\FinSuite.BizAnalyser.Desktop\\bin\\Release\\BizAnalyserPro.exe",
-      platformName: "Windows",
-      deviceName: "WindowsPC"
-    });    
-    await driver.elementByName("BizAnalyser - Sign In");
-    await driver.elementByName("Login").click();
+      await console.log("Test Text");
+      //let notepadPage = new NotepadPage(driver);
+      //await notepadPage.clickSystem();
   });
 });
