@@ -2,7 +2,7 @@ import NotepadPage from '../pageObjects/notepadPage';
 import Server from '../../lib/server';
 import DriverBuilder from '../../lib/driverBuilder';
 
-var capabilities ={
+let capabilities ={
   app: "C:\\WINDOWS\\system32\\notepad.exe",
   platformName: "Windows",
   deviceName: "WindowsPC"
@@ -13,7 +13,6 @@ let driver;
 
 describe('Notepad related tests', function () {  
   before(async function () {
-
     await Server.startServer();
   });
 
@@ -24,8 +23,7 @@ describe('Notepad related tests', function () {
   beforeEach(async function () {
     driverBuilder = new DriverBuilder();
     driver = await driverBuilder.createDriver(capabilities);
-    console.log("My driver in the before each is" +driver);
-    //await driver.elementByName("Untitled - Notepad");
+    console.log("My driver in the before each is" +driver);    
   });
 
   afterEach(async function () {
@@ -33,8 +31,8 @@ describe('Notepad related tests', function () {
   });
 
   it('should run a basic session using a real client', async function () {    
-      await console.log("Test Text");
-      //let notepadPage = new NotepadPage(driver);
-      //await notepadPage.clickSystem();
+      await console.log("Driver before test is " +driver);
+      let notepadPage = new NotepadPage(driver);
+      await notepadPage.clickSystem();
   });
 });

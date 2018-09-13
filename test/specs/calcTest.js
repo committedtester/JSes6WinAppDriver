@@ -1,22 +1,28 @@
+import Server from '../../lib/server';
 import wd from 'wd';
 import chai from 'chai';
 import chaiAsPromised from 'chai-as-promised';
-import { startServer } from '../lib/server';
 chai.should();
 chai.use(chaiAsPromised);
 
 const TEST_PORT = 4788;
 const TEST_HOST = "localhost";
 
-let server, driver;
+let capabilities ={
+  app: "Microsoft.WindowsCalculator_8wekyb3d8bbwe!App",
+  platformName: "Windows",
+  deviceName: "WindowsPC"
+}
+
+let driver;
 
 describe('Driver', function () {
   before(async function () {
-    server = await startServer(TEST_PORT, TEST_HOST);
+    await Server.startServer();
   });
 
   after(async function () {
-    await server.close();
+    await Server.stopServer();
   });
 
   beforeEach(async function () {
@@ -24,15 +30,11 @@ describe('Driver', function () {
   });
 
   afterEach(async function () {
-    //await driver.quit();
+    await driver.quit();
   });
 
   it('should run a basic session using a real client', async function () {
-    await driver.init({
-      app: "Microsoft.WindowsCalculator_8wekyb3d8bbwe!App",
-      platformName: "Windows",
-      deviceName: "WindowsPC"
-    });
+    await driver.init(capabilities);
     await driver.elementByName("Calculator");
     await driver.elementByName("Open Navigation").click();
   });

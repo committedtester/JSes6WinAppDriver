@@ -4,8 +4,11 @@
   "description": "Moving from C# solution to JS",
   "main": "index.js",
   "scripts": {
-    "mocha": "node ./node_modules/mocha/bin/mocha --opts ./test/config/mocha.opts  ./test/specs/*test.js",
-    "test": "mocha --opts ./test/config/mocha.opts ./test/specs/*test.js "
+    "mocha": "node ./node_modules/mocha/bin/mocha --opts ./test/config/mocha.opts  ./test/specs/*Test.js",
+    "test": "mocha --opts ./test/config/mocha.opts ./test/specs/*Test.js ",
+    "notepad": "mocha --opts ./test/config/mocha.opts ./test/specs/notepadPageObjectTest.js ",
+    "calc": "mocha --opts ./test/config/mocha.opts ./test/specs/calcTest.js "
+
   },
   "author": "",
   "devDependencies": {
@@ -19,6 +22,7 @@
   "dependencies": {
     "appium-windows-driver": "^1.2.1",
     "babel-preset-env": "^1.7.0",
-    "wd": "^1.10.3"
+    "wd": "^1.10.3",
+    "selenium-webdriver": "^3.1.0"
   }
 }
