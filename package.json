@@ -7,7 +7,8 @@
     "mocha": "node ./node_modules/mocha/bin/mocha --opts ./test/config/mocha.opts  ./test/specs/*Test.js",
     "test": "mocha --opts ./test/config/mocha.opts ./test/specs/*Test.js ",
     "notepad": "mocha --opts ./test/config/mocha.opts ./test/specs/notepadPageObjectTest.js ",
-    "calc": "mocha --opts ./test/config/mocha.opts ./test/specs/calcTest.js "
+    "calc": "mocha --opts ./test/config/mocha.opts ./test/specs/calcTest.js ",
+    "debug": "node --inspect ./node_modules/mocha/bin/mocha --opts ./test/config/mocha.opts  ./test/specs/notepadPageObjectTest.js"
 
   },
   "author": "",

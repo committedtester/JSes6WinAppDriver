@@ -1,24 +1,31 @@
 import BasePage from './BasePage';
-import { By } from 'selenium-webdriver';
-//import AppiumWindowsDriver from 'appium-windows-driver';
-//import wd from 'wd';
-
-const FILE_DROPDOWN = By.name("File");
 
 export default class NotepadPage extends BasePage {
-      
-async clickSystem (){
-    console.log("Driver is currently "+this.driver);
-       
-    //return await this.driver.elementByName("Untitled - Notepad");
-    //return await this.driver.FindElementByName("Untitled - Notepad");
-    return await this.click(FILE_DROPDOWN);
 
-    //await this.driver.findElement(locator)
-    //await this.driver.elementByName("Edit").click();
-     //await this.driver.elementByName("File").click();
-     //await this.clickSystem(FILE_DROPDOWN);
+    constructor (webdriver) {
+        super(webdriver);        
+        this.initializeElements();
+    }
+
+    async initializeElements(){
+        //identifies all available elements during new object creation
+        this.notepadUntitled = this.driver.elementByName("Untitled - Notepad");  
+        this.fileDropDown = this.driver.elementByName('File');
+    };
+
+    get fileDropDownNew()   { return this.driver.elementByName('New	Ctrl+N'); }
+
+    async waitForNotepadToLoad(){
+        await this.notepadUntitled;
+    }
+    
+    async clickFileDropDown (){
+        await this.fileDropDown.click();
+    }
+
+    async clickFileDropDownNew (){
+        //await this.driver.elementByName('New	Ctrl+N').click();
+        await this.fileDropDownNew.click();
+    }   
+
 };
-};
-
-
