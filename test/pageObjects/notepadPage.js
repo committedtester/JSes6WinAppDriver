@@ -1,5 +1,4 @@
 import BasePage from './BasePage';
-
 export default class NotepadPage extends BasePage {
 
     constructor (webdriver) {
@@ -11,12 +10,14 @@ export default class NotepadPage extends BasePage {
         //identifies all available elements during new object creation
         this.notepadUntitled = this.driver.elementByName("Untitled - Notepad");  
         this.fileDropDown = this.driver.elementByName('File');
+        this.editDropDown = this.driver.elementByName('Edit');
     };
 
-    get fileDropDownNew()   { return this.driver.elementByName('New	Ctrl+N'); }
+    //elements not immediately available on load
+    get fileDropDownNew()   {return this.driver.elementByName('New	Ctrl+N'); }
 
     async waitForNotepadToLoad(){
-        await this.notepadUntitled;
+        chai.expect(await this.validateElementAvailable(this.notepadUntitled)).to.be.true;
     }
     
     async clickFileDropDown (){
@@ -24,7 +25,6 @@ export default class NotepadPage extends BasePage {
     }
 
     async clickFileDropDownNew (){
-        //await this.driver.elementByName('New	Ctrl+N').click();
         await this.fileDropDownNew.click();
     }   
 
