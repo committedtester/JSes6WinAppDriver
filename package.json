@@ -8,7 +8,9 @@
     "test": "mocha --opts ./test/config/mocha.opts ./test/specs/*Test.js ",
     "notepad": "mocha --opts ./test/config/mocha.opts ./test/specs/notepadPageObjectTest.js ",
     "calc": "mocha --opts ./test/config/mocha.opts ./test/specs/calcTest.js ",
-    "debug": "node --inspect ./node_modules/mocha/bin/mocha --opts ./test/config/mocha.opts  ./test/specs/notepadPageObjectTest.js"
+    "debug": "node --inspect ./node_modules/mocha/bin/mocha --opts ./test/config/mocha.opts  ./test/specs/notepadPageObjectTest.js",
+    "bizanalyser" : "mocha --opts ./test/config/mocha.opts ./test/specs/bizanalyserTest.js ",
+    "bizanalyserExistingSessionTest" : "mocha --opts ./test/config/mocha.opts ./test/specs/bizanalyserExistingSessionTest.js "
 
   },
   "author": "",

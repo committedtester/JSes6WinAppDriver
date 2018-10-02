@@ -11,6 +11,18 @@ export default
       "platformName": "Windows",
       "deviceName": "WindowsPC"
     },
+    "root":{
+        "app": "Root",
+        "platformName": "Windows",
+        "deviceName": "WindowsPC",
+        "newCommandTimeout": "120000"
+      },
+    "bizanalyser":{
+        "app": "C:\\dev\\BizAnalyser\\BizAnalyser\\FinSuite.BizAnalyser.Desktop\\bin\\Release\\BizAnalyserPro.exe",
+        "platformName": "Windows",
+        "deviceName": "WindowsPC",
+        "newCommandTimeout": "120000"
+      },
     "testPort":"4788",
     "testHost":"localhost"
 }
