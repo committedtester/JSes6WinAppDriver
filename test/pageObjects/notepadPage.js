@@ -16,10 +16,29 @@ export default class NotepadPage extends BasePage {
     //elements not immediately available on load
     get fileDropDownNew()   {return this.driver.elementByName('New	Ctrl+N'); }
 
-    async waitForNotepadToLoad(){
-        chai.expect(await this.validateElementAvailable(this.notepadUntitled)).to.be.true;
-    }
+    async waitForNotePadDialog(){
+        await this.waitForElementAvailable(this.notepadUntitled,1000,10);
+    }    
     
+    async connectNotePadDriver(){ 
+        
+        await this.waitForNotePadDialog();            
+        var notepadWindow = await this.notepadUntitled.getAttribute("NativeWindowHandle");
+        let hex = (Number(notepadWindow)).toString(16);
+
+        var existingNotepadCapabilities =
+        {
+        "appTopLevelWindow": hex,
+        "platformName": "Windows",
+        "deviceName": "WindowsPC",
+        "newCommandTimeout": "120000"
+        }
+        let driverBuilder = new DriverBuilder();
+        this.driver = await driverBuilder.createDriver(existingNotepadCapabilities);
+        return this.driver;
+        }
+
+   
     async clickFileDropDown (){
         await this.fileDropDown.click();
     }

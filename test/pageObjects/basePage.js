@@ -1,10 +1,3 @@
-import chai from 'chai';
-import chaiAsPromised from 'chai-as-promised';
-var expect = chai.expect;
-
-chai.should();
-chai.use(chaiAsPromised);
-
 export default class BasePage {
       
     constructor (webdriver) {
@@ -38,6 +31,4 @@ async waitForElementAvailable(element, waitDuration=1000, iterations=5)
     }
     
 }
-
-
 }

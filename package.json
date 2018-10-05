@@ -1,17 +1,11 @@
 {
-  "name": "winappdriverjs",
+  "name": "JSES6WinAppDriver",
   "version": "1.0.0",
-  "description": "Moving from C# solution to JS",
+  "description": "WinAppDriver implementation for JavaScript in ES6",
   "main": "index.js",
-  "scripts": {
-    "mocha": "node ./node_modules/mocha/bin/mocha --opts ./test/config/mocha.opts  ./test/specs/*Test.js",
-    "test": "mocha --opts ./test/config/mocha.opts ./test/specs/*Test.js ",
+  "scripts": {   
     "notepad": "mocha --opts ./test/config/mocha.opts ./test/specs/notepadPageObjectTest.js ",
-    "calc": "mocha --opts ./test/config/mocha.opts ./test/specs/calcTest.js ",
-    "debug": "node --inspect ./node_modules/mocha/bin/mocha --opts ./test/config/mocha.opts  ./test/specs/notepadPageObjectTest.js",
-    "bizanalyser" : "mocha --opts ./test/config/mocha.opts ./test/specs/bizanalyserTest.js ",
-    "bizanalyserExistingSessionTest" : "mocha --opts ./test/config/mocha.opts ./test/specs/bizanalyserExistingSessionTest.js "
-
+    "calc": "mocha --opts ./test/config/mocha.opts ./test/specs/calcTest.js "    
   },
   "author": "",
   "devDependencies": {

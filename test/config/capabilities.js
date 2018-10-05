@@ -1,5 +1,4 @@
 export default
-
 {
     "notepad": {
         "app": "C:\\WINDOWS\\system32\\notepad.exe",
@@ -13,12 +12,6 @@ export default
     },
     "root":{
         "app": "Root",
-        "platformName": "Windows",
-        "deviceName": "WindowsPC",
-        "newCommandTimeout": "120000"
-      },
-    "bizanalyser":{
-        "app": "C:\\dev\\BizAnalyser\\BizAnalyser\\FinSuite.BizAnalyser.Desktop\\bin\\Release\\BizAnalyserPro.exe",
         "platformName": "Windows",
         "deviceName": "WindowsPC",
         "newCommandTimeout": "120000"

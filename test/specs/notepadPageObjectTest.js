@@ -6,13 +6,13 @@ import capabilities from '../config/capabilities'
 let driverBuilder;
 let driver;
 
-describe('Notepad related tests', function () {  
+describe('Tests in a Page Object Model', function () {  
   before(async function () {
-    //await Server.startServer();
+    await Server.startServer();
   });
 
   after(async function () {
-    //await Server.stopServer();
+    await Server.stopServer();
   });
 
   beforeEach(async function () {
