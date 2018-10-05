@@ -2,15 +2,11 @@ import BizanalyserSignIn from '../pageObjects/bizanalyserSignIn';
 import Server from '../../lib/server';
 import DriverBuilder from '../../lib/driverBuilder';
 import capabilities from '../config/capabilities';
-import WindowsOS from '../pageObjects/windowsOS';
 
-var webdriver = require('selenium-webdriver'),
-	Key = webdriver.Key;
 
 let driverBuilder;
 let driver;
-
-let bizAnalyserDirectory =`C:\\dev\\BizAnalyser\\BizAnalyser\\FinSuite.BizAnalyser.Desktop\\bin\\Release\\BizAnalyserPro`;
+let bizanalyserSignIn;
 
 describe('Notepad related tests', function () {  
   
@@ -24,46 +20,21 @@ describe('Notepad related tests', function () {
   });
 
   beforeEach(async function () {
-    
+    this.timeout(180000);
+    driverBuilder = new DriverBuilder();
+    driver = await driverBuilder.createSlowAppDriver(capabilities.bizanalyser,capabilities.root);
+    bizanalyserSignIn = new BizanalyserSignIn(driver);
+    driver = await bizanalyserSignIn.connectBizAnalyserDriver();
+    bizanalyserSignIn = new BizanalyserSignIn(driver); 
+   
   });
 
   afterEach(async function () {
     await driverBuilder.stopDriver();
   });
 
-  it('should run a basic session using a real client', async function () {   
-    this.timeout(180000);
-    driverBuilder = new DriverBuilder();
-    driver = await driverBuilder.createDriver(capabilities.bizanalyser);
-
-    // let windowsOS = new WindowsOS(driver);
-    // await windowsOS.loadProgramViaRun(bizAnalyserDirectory);    
-    // await windowsOS.delay(10000);
-
-    // let bizanalyserSignIn = new BizanalyserSignIn(driver);
-    // await bizanalyserSignIn.waitForSigninDialog();
-
-   
-
-    // var bizanalyserWindow = await driver.elementByAccessibilityId("MainWindow_Standalone").getAttribute("NativeWindowHandle");
-    // let bzaHex = (Number(bizanalyserWindow)).toString(16);
-
-    // var existingBizAnalyserCapabilities =
-    // {
-    //   "appTopLevelWindow": bzaHex,
-    //   "platformName": "Windows",
-    //   "deviceName": "WindowsPC",
-    //   "newCommandTimeout": "120000"
-    // }
-
-    // driverBuilder = new DriverBuilder();
-    // driver = await driverBuilder.createDriver(existingBizAnalyserCapabilities);
-
-    
-
-    // bizanalyserSignIn = new BizanalyserSignIn(driver);
-    // await bizanalyserSignIn.waitForSigninDialog();
-    // await bizanalyserSignIn.clickLogin();
+  it('should run a basic session using a real client', async function () {           
+    await bizanalyserSignIn.clickLogin();
 
   });
 });
