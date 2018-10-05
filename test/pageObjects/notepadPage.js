@@ -1,4 +1,5 @@
 import BasePage from './BasePage';
+import DriverBuilder from '../../lib/driverBuilder';
 export default class NotepadPage extends BasePage {
 
     constructor (webdriver) {
@@ -33,7 +34,9 @@ export default class NotepadPage extends BasePage {
         "deviceName": "WindowsPC",
         "newCommandTimeout": "120000"
         }
+        
         let driverBuilder = new DriverBuilder();
+        await driverBuilder.stopDriver();
         this.driver = await driverBuilder.createDriver(existingNotepadCapabilities);
         return this.driver;
         }

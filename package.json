@@ -1,13 +1,14 @@
 {
-  "name": "JSES6WinAppDriver",
+  "name": "js-es6-winappdriver",
+  "author": "committed Tester (Aaron McKay)",
   "version": "1.0.0",
   "description": "WinAppDriver implementation for JavaScript in ES6",
   "main": "index.js",
   "scripts": {   
-    "notepad": "mocha --opts ./test/config/mocha.opts ./test/specs/notepadPageObjectTest.js ",
+    "notepadPOM": "mocha --opts ./test/config/mocha.opts ./test/specs/notepadPageObjectTest.js ",
+    "notepadAttach": "mocha --opts ./test/config/mocha.opts ./test/specs/notepadAttachSession.js ",
     "calc": "mocha --opts ./test/config/mocha.opts ./test/specs/calcTest.js "    
   },
-  "author": "",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "chai": "^4.1.2",

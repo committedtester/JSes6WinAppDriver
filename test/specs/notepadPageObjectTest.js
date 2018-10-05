@@ -26,7 +26,6 @@ describe('Tests in a Page Object Model', function () {
 
   it('should run a basic session using a real client', async function () {    
       let notepadPage = new NotepadPage(driver);  
-      await notepadPage.waitForNotepadToLoad();
       await notepadPage.clickFileDropDown();    
       await notepadPage.clickFileDropDownNew();
   });

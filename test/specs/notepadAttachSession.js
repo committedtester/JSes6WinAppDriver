@@ -7,7 +7,7 @@ import WindowsOS from '../pageObjects/windowsOS';
 let driverBuilder;
 let driver;
 
-let notepadLocation =`C:\\Windows\\System32\notepad.exe`;
+let notepadLocation =`C:\\Windows\\System32\\notepad.exe`;
 
 describe('Notepad related tests', function () {  
   
@@ -39,8 +39,7 @@ describe('Notepad related tests', function () {
     let notepadPage = new NotepadPage(driver);
     driver = await notepadPage.connectNotePadDriver();
 
-    let notepadPage = new NotepadPage(driver);
-    await notepadPage.waitForNotepadToLoad();
+    notepadPage = new NotepadPage(driver);
     await notepadPage.clickFileDropDown();    
     await notepadPage.clickFileDropDownNew();    
 
