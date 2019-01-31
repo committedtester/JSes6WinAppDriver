@@ -6,9 +6,11 @@ This GitHub Repository has test examples for:
 * Notepad written in a page object model style
 * Notepad where we start at a root level, wait and then attach to an active window (useful for slow starting applications)
 
+Compatible with WinAppDriver v1.1
+
 ## Setup and Execution
 [WinAppDriver Installer](https://github.com/Microsoft/WinAppDriver#installing-and-running-windows-application-driver) 
-* npm install
+* npm install 
 * npm run calc  
 * npm run notepadPOM
 * npm run notepadAttach  
