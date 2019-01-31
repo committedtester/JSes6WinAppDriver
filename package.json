@@ -4,10 +4,10 @@
   "version": "1.0.0",
   "description": "WinAppDriver implementation for JavaScript in ES6",
   "main": "index.js",
-  "scripts": {   
+  "scripts": {
     "notepadPOM": "mocha --opts ./test/config/mocha.opts ./test/specs/notepadPageObjectTest.js ",
     "notepadAttach": "mocha --opts ./test/config/mocha.opts ./test/specs/notepadAttachSession.js ",
-    "calc": "mocha --opts ./test/config/mocha.opts ./test/specs/calcTest.js "    
+    "calc": "mocha --opts ./test/config/mocha.opts ./test/specs/calcTest.js "
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
